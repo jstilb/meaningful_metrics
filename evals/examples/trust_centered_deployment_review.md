@@ -1,5 +1,7 @@
 # Trust-Centered Deployment Review
 
+**Maturity:** Draft
+
 ## Summary
 Evaluates whether a conversational AI launch meets transparency, consent, and disclosure expectations before expanding to a wider audience.
 
@@ -32,6 +34,7 @@ Apply before shipping copilots, chatbots, or advisory assistants that will inter
 ## Governance & Maintenance
 - Policy lead owns the playbook, with quarterly refreshes to incorporate new regulations or product capabilities.
 - Incident response process triggers an out-of-cycle review when customer complaints cite misleading disclosures.
+- Reference tooling in [`tooling/evals`](../../tooling/evals/) and log decisions using the toolkit templates. Publish updates in the community changelog.
 
 ## References & Inspiration
 - EU AI Act transparency obligations.

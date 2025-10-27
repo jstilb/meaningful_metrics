@@ -10,6 +10,9 @@ Provide a concise, action-oriented name (e.g., "Engaged Learning Time").
 ## Summary
 Describe the human-centered outcome this metric promotes in 2–3 sentences. Focus on the benefit to people rather than the product.
 
+## Maturity Tier
+Select **Idea**, **Draft**, or **Field-Tested**. Summarize the evidence that supports this tier (pilots, production data, community validation).
+
 ## Context & Motivation
 - What problem does this metric address?
 - Who is affected, and what do they need?
@@ -26,12 +29,13 @@ List the positive behaviors or outcomes this metric should increase. Mention any
 
 ## Implementation Considerations
 - Data quality or privacy requirements
-- Instrumentation needs
+- Instrumentation needs (reference assets in `tooling/metrics/<metric_name>/` when available)
 - Potential biases or failure modes and how to mitigate them
 
 ## Validation & Feedback
 - How will you evaluate whether the metric reflects the intended outcome?
 - What qualitative or quantitative feedback loops are needed?
+- Which governance assets (decision log, fairness audit, surveys) will you use from `docs/toolkit/`?
 
 ## Ethical Checklist
 - Does this metric respect user agency and autonomy?
