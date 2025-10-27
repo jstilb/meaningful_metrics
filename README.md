@@ -19,12 +19,18 @@ Modern data products influence how people learn, work, socialize, and make decis
 ```
 .
 ├── docs/
-│   ├── metric_template.md   # Guidance for drafting a new metric proposal
-│   └── eval_template.md     # Checklist for designing a responsible AI evaluation
+│   ├── metric_template.md     # Guidance for drafting a new metric proposal
+│   ├── eval_template.md       # Checklist for designing a responsible AI evaluation
+│   └── toolkit/               # Reusable validation and governance assets
 ├── metrics/
-│   └── examples/            # Sample metric submissions
+│   └── examples/              # Sample metric submissions across domains
 ├── evals/
-│   └── examples/            # Sample AI evaluation playbooks
+│   └── examples/              # Sample AI evaluation playbooks
+├── tooling/
+│   ├── metrics/               # Quick-start instrumentation guides and queries
+│   └── evals/                 # Checklists and workflow automations for reviews
+├── community/                 # Feedback loops, changelog, and adoption stories
+├── .github/                   # Contribution templates and governance workflow
 ├── CONTRIBUTING.md          # How to participate
 ├── CODE_OF_CONDUCT.md       # Community expectations
 └── README.md                # Project overview
@@ -33,9 +39,10 @@ Modern data products influence how people learn, work, socialize, and make decis
 ## Getting Started
 
 1. **Explore the metric examples** in [`metrics/examples`](metrics/examples/) and the AI evaluation examples in [`evals/examples`](evals/examples/) to understand the level of depth we expect.
-2. **Use the templates** in [`docs/metric_template.md`](docs/metric_template.md) or [`docs/eval_template.md`](docs/eval_template.md) to frame your idea. Focus on who benefits, why it matters, and how to measure success responsibly.
-3. **Discuss big ideas** by opening a GitHub issue tagged with `discussion` before submitting major proposals. Early collaboration helps align on scope and ethics.
-4. **Submit a pull request** following the steps in [CONTRIBUTING.md](CONTRIBUTING.md). We review submissions for clarity, measurability, and ethical alignment.
+2. **Review the maturity tiers** below to position your contribution as an Idea, Draft, or Field-Tested artifact before you start writing.
+3. **Use the templates** in [`docs/metric_template.md`](docs/metric_template.md) or [`docs/eval_template.md`](docs/eval_template.md) to frame your idea. Focus on who benefits, why it matters, and how to measure success responsibly.
+4. **Discuss big ideas** by opening a GitHub issue using the "New Artifact Proposal" template before submitting major proposals. Early collaboration helps align on scope and ethics.
+5. **Submit a pull request** following the steps in [CONTRIBUTING.md](CONTRIBUTING.md). We review submissions for clarity, measurability, ethical alignment, and evidence that supports the stated maturity level.
 
 ## What Makes a Metric "Meaningful"?
 
@@ -51,6 +58,8 @@ A good submission should include:
 
 - [`engaged_learning_time`](metrics/examples/engaged_learning_time.md) balances time spent with demonstrated skill growth and reflective breaks, rewarding focused learning over endless consumption.
 - [`actionable_recommendation_rate`](metrics/examples/actionable_recommendation_rate.md) encourages recommendation systems to surface content that viewers can act on within their current goals, discouraging passive binge-watching loops.
+- [`civic_participation_depth`](metrics/examples/civic_participation_depth.md) supports civic-tech platforms by measuring how often residents progress from awareness to concrete participation opportunities.
+- [`accessibility_success_pathways`](metrics/examples/accessibility_success_pathways.md) centers disabled learners by tracking completion of accessible learning flows and surfacing blockers for remediation.
 
 ## AI Evaluation Playbooks for Ethical Businesses
 
@@ -59,6 +68,30 @@ AI-native organizations need evaluation suites that connect model performance wi
 - [`trust_centered_deployment_review`](evals/examples/trust_centered_deployment_review.md) pairs disclosure and consent audits with cross-functional reviews before expanding conversational AI deployments.
 - [`impact_equity_monitor`](evals/examples/impact_equity_monitor.md) operationalizes fairness metrics, qualitative harm assessments, and mitigation follow-up plans for ranking and risk-scoring models.
 - [`sustainable_automation_scorecard`](evals/examples/sustainable_automation_scorecard.md) measures how automation affects employee wellbeing, oversight quality, and environmental sustainability.
+- [`inclusive_assistive_review`](evals/examples/inclusive_assistive_review.md) ensures AI accessibility assistants improve autonomy while protecting privacy and minimizing misdirection risk.
+- [`civic_outreach_accountability_board`](evals/examples/civic_outreach_accountability_board.md) governs municipal AI outreach tools with transparency, bias remediation, and public reporting obligations.
+
+Each playbook documents collection methods, review cadences, and responsible owners so that teams can iterate transparently. Contributors are encouraged to submit additional AI eval examples tailored to their industries—especially those that surface long-term human and societal impacts.
+
+## Implementation Quick Starts
+
+Every exemplar links to actionable assets in [`tooling/`](tooling/) so teams can move from documentation to execution. You'll find:
+
+- **Instrumentation guides** that describe required events, schemas, and logging standards.
+- **Reference queries and notebooks** for deriving each metric responsibly, including fairness slices and guardrails.
+- **Evaluation playbooks** with facilitation checklists, automation scripts, and decision log templates that connect directly to review cadences.
+
+Use these assets as a foundation, adapting them to your context while preserving the human-centered intent of each metric or evaluation.
+
+## Contribution Maturity Tiers
+
+To help adopters gauge reliability, every contribution must declare a maturity level:
+
+- **Idea** – Conceptual framing with initial signals and guardrails. Requires community discussion before merge.
+- **Draft** – Includes preliminary validation evidence (e.g., pilot data, qualitative research) and references tooling assets for implementation.
+- **Field-Tested** – Demonstrated impact in production or programs with documented outcomes, maintenance owners, and governance rituals.
+
+Issue and PR templates collect this information, and maintainers verify the maturity label before merging. Artifacts can be promoted between tiers once new evidence is documented in the community changelog.
 
 Each playbook documents collection methods, review cadences, and responsible owners so that teams can iterate transparently. Contributors are encouraged to submit additional AI eval examples tailored to their industries—especially those that surface long-term human and societal impacts.
 
@@ -66,7 +99,7 @@ Each playbook documents collection methods, review cadences, and responsible own
 
 Meaningful Metrics is maintained by volunteers who believe ethical design should be the default. We welcome contributors from product, research, design, policy, and lived-experience backgrounds. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating.
 
-If you use these metrics—or improve upon them—let us know! Sharing learnings helps us collectively build better products.
+Visit the [`community/`](community/) area to browse changelogs, adoption stories, and upcoming office hours. Share your feedback via the intake form outlined there so we can publish regular updates and close the loop on requests.
 
 ## License
 

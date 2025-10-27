@@ -1,5 +1,7 @@
 # Engaged Learning Time
 
+**Maturity:** Draft
+
 ## Summary
 Encourages learning platforms to promote focused, purposeful study sessions that result in real skill growth and avoid unstructured binge consumption.
 
@@ -25,12 +27,12 @@ Learners often spend hours consuming educational videos or articles without clea
 ## Implementation Considerations
 - Requires reliable goal tagging for content and opt-in goal selection from learners.
 - Checkpoint quality should be periodically audited to ensure they measure meaningful progress.
-- Platforms must respect user privacy when logging reflections—store anonymized signals when possible.
+- Platforms must respect user privacy when logging reflections—store anonymized signals when possible. Reference the instrumentation guide in [`tooling/metrics/engaged_learning_time`](../../tooling/metrics/engaged_learning_time/).
 
 ## Validation & Feedback
 - Compare Engaged Learning Time with independent assessments of skill acquisition.
 - Run learner interviews to confirm the metric matches perceived progress and avoids burnout.
-- Monitor for regressions where the metric rises but completion satisfaction scores fall.
+- Monitor for regressions where the metric rises but completion satisfaction scores fall. Document findings using toolkit assets (fairness audit, participant survey, decision log).
 
 ## Ethical Checklist
 - Provides agency by letting learners set or update goals at any time.

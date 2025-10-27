@@ -1,5 +1,7 @@
 # Sustainable Automation Scorecard
 
+**Maturity:** Draft
+
 ## Summary
 Assesses whether AI-enabled automation programs improve stakeholder wellbeing while meeting environmental sustainability goals.
 
@@ -35,6 +37,7 @@ Deploy after major automation feature releases that affect frontline employees, 
 ## Governance & Maintenance
 - Sustainability program manager co-owns the scorecard with the operations lead; update inputs when infrastructure providers change.
 - Trigger ad-hoc evaluations after major model retraining or infrastructure migrations.
+- Reference tooling assets in [`tooling/evals`](../../tooling/evals/) and capture follow-up actions in the decision log and community changelog.
 
 ## References & Inspiration
 - World Economic Forum guidelines on human-centered automation.

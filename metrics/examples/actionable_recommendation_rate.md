@@ -1,5 +1,7 @@
 # Actionable Recommendation Rate
 
+**Maturity:** Draft
+
 ## Summary
 Rewards recommendation systems that prioritize content a person can immediately act on to advance their current goals, rather than endless passive consumption.
 
@@ -27,11 +29,12 @@ Platforms often optimize for watch time or click-through, resulting in loops of 
 - Requires a clear schema for capturing user goals and linking content metadata.
 - Follow-up actions should be privacy-preserving and consent-based.
 - Feedback prompts must be lightweight to avoid survey fatigue; consider in-product emoji ratings with optional detail.
+- Reference the instrumentation guide in [`tooling/metrics/actionable_recommendation_rate`](../../tooling/metrics/actionable_recommendation_rate/) for event schemas and reference queries.
 
 ## Validation & Feedback
 - Conduct user research interviews to confirm the recommendations feel timely and empowering.
 - Monitor correlations between the metric and long-term retention or satisfaction scores.
-- Audit for over-scoping: ensure marginalized users receive equally actionable recommendations.
+- Audit for over-scoping: ensure marginalized users receive equally actionable recommendations. Capture findings using the fairness audit checklist and decision log template.
 
 ## Ethical Checklist
 - Provide an easy opt-out from goal tracking and recommendation personalization.

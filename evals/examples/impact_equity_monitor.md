@@ -1,5 +1,7 @@
 # Impact Equity Monitor
 
+**Maturity:** Draft
+
 ## Summary
 Tracks whether machine learning models deliver comparable outcomes across protected stakeholder groups and creates structured follow-up plans when disparities appear.
 
@@ -33,6 +35,7 @@ Run as part of quarterly model governance for recommendation, ranking, or risk-s
 ## Governance & Maintenance
 - Responsible AI program manager maintains the playbook and ensures alignment with regulatory reporting requirements.
 - Community advisory board reviews outcomes twice per year and can request interim analyses when new harms surface.
+- Reference fairness automation assets in [`tooling/evals`](../../tooling/evals/) and log decisions in the community changelog using toolkit templates.
 
 ## References & Inspiration
 - NIST AI Risk Management Framework – Map & Measure functions.
