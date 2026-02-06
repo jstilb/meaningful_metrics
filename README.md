@@ -1,5 +1,10 @@
 # Meaningful Metrics
 
+[![CI](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml/badge.svg)](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 Meaningful Metrics is an open-source initiative for creating metrics that help people and organizations build ethical, human-centered products. Instead of optimizing for vanity numbers like raw watch time or ad impressions, we collect and design measures that reward products for empowering, educating, and respecting the humans who use them. As AI systems become core to digital experiences, our mission also includes developing evaluation frameworks that hold intelligent products accountable to the same human-first standards.
 
 ## Vision
