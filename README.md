@@ -3,107 +3,169 @@
 [![CI](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml/badge.svg)](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230.svg)](https://github.com/astral-sh/ruff)
+[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org/)
+[![Coverage: >90%](https://img.shields.io/badge/coverage-%3E90%25-brightgreen.svg)](#evaluation-results)
 
-Meaningful Metrics is an open-source initiative for creating metrics that help people and organizations build ethical, human-centered products. Instead of optimizing for vanity numbers like raw watch time or ad impressions, we collect and design measures that reward products for empowering, educating, and respecting the humans who use them. As AI systems become core to digital experiences, our mission also includes developing evaluation frameworks that hold intelligent products accountable to the same human-first standards.
+A Python framework for evaluating AI systems against human-centered outcomes instead of engagement-maximization proxies. Provides composable, mathematically transparent metrics that reward products for empowering users rather than capturing their attention.
 
-## Vision
+## Why I Built This
 
-Modern data products influence how people learn, work, socialize, and make decisions. We believe metrics should reinforce positive behaviors—encouraging depth over distraction, action over passivity, and wellbeing over addiction. This repository is a collaborative space where practitioners, researchers, and product teams can co-create metrics that align business success with human flourishing.
+The attention economy optimizes for the wrong thing. Products track time-on-site, click-through rates, and session length -- metrics that reward addictive design over user wellbeing. As AI systems become the interface layer for digital experiences, the metrics we optimize for will shape how billions of people spend their time.
 
-## Core Principles
+**Meaningful Metrics** provides an alternative: a scoring framework where "success" means users accomplished their goals, engaged purposefully, and took action on what they consumed -- not that they scrolled for three more hours.
 
-- **Human impact first** – Metrics should describe the benefit to people, not just the product or business.
-- **Actionable and measurable** – Each metric must be grounded in data that can be collected responsibly and acted upon.
-- **Right-sized engagement** – Reward sustained, purposeful use and discourage harmful overuse or binge behavior.
-- **Transparency and accountability** – Document assumptions, potential harms, and validation steps so teams can implement responsibly.
-- **Collaborative stewardship** – We value open dialogue, iteration, and evidence-based improvements from the community.
+This project exists at the intersection of my interests in **AI evaluation**, **responsible ML**, and **product analytics**. It demonstrates how evaluation frameworks can be designed to align AI behavior with human flourishing rather than engagement maximization.
 
-## Repository Structure
+## Key Metrics
 
-```
-.
-├── docs/
-│   ├── metric_template.md     # Guidance for drafting a new metric proposal
-│   ├── eval_template.md       # Checklist for designing a responsible AI evaluation
-│   └── toolkit/               # Reusable validation and governance assets
-├── metrics/
-│   └── examples/              # Sample metric submissions across domains
-├── evals/
-│   └── examples/              # Sample AI evaluation playbooks
-├── tooling/
-│   ├── metrics/               # Quick-start instrumentation guides and queries
-│   └── evals/                 # Checklists and workflow automations for reviews
-├── community/                 # Feedback loops, changelog, and adoption stories
-├── .github/                   # Contribution templates and governance workflow
-├── CONTRIBUTING.md          # How to participate
-├── CODE_OF_CONDUCT.md       # Community expectations
-└── README.md                # Project overview
+| Metric | What It Measures | Why It Matters |
+|--------|-----------------|----------------|
+| **Quality Time Score** | Priority-weighted time with diminishing returns caps | Prevents over-optimization on any single domain |
+| **Goal Alignment** | % of time on user-stated goals | Measures purposeful vs. passive engagement |
+| **Distraction Ratio** | % of time on non-goal activities | Surfaces attention leakage |
+| **Actionability Score** | Information-to-action conversion rate | Rewards content that drives behavior change |
+| **Locality Score** | Community relevance weighting | Prioritizes locally impactful content |
+
+## Quick Start
+
+```bash
+pip install -e .
 ```
 
-## Getting Started
+```python
+from meaningful_metrics import (
+    calculate_quality_time_score,
+    generate_metrics_report,
+)
+from meaningful_metrics.schemas import (
+    ActionLog,
+    DomainPriority,
+    Goal,
+    TimeEntry,
+)
 
-1. **Explore the metric examples** in [`metrics/examples`](metrics/examples/) and the AI evaluation examples in [`evals/examples`](evals/examples/) to understand the level of depth we expect.
-2. **Review the maturity tiers** below to position your contribution as an Idea, Draft, or Field-Tested artifact before you start writing.
-3. **Use the templates** in [`docs/metric_template.md`](docs/metric_template.md) or [`docs/eval_template.md`](docs/eval_template.md) to frame your idea. Focus on who benefits, why it matters, and how to measure success responsibly.
-4. **Discuss big ideas** by opening a GitHub issue using the "New Artifact Proposal" template before submitting major proposals. Early collaboration helps align on scope and ethics.
-5. **Submit a pull request** following the steps in [CONTRIBUTING.md](CONTRIBUTING.md). We review submissions for clarity, measurability, ethical alignment, and evidence that supports the stated maturity level.
+# Define how a user spent their day
+time_entries = [
+    TimeEntry(domain="learning", hours=3.0),
+    TimeEntry(domain="work", hours=5.0),
+    TimeEntry(domain="social_media", hours=1.5),
+]
 
-## What Makes a Metric "Meaningful"?
+# Set priorities (what SHOULD matter)
+priorities = [
+    DomainPriority(domain="learning", priority=1.0, max_daily_hours=4.0),
+    DomainPriority(domain="work", priority=0.8),
+    DomainPriority(domain="social_media", priority=0.2, max_daily_hours=1.0),
+]
 
-A good submission should include:
+# Define goals
+goals = [
+    Goal(id="learn-ml", name="Learn ML", domains=["learning"]),
+]
 
-- **Intent** – What human outcome are we promoting or protecting?
-- **Signals** – Which qualitative or quantitative inputs reflect that outcome?
-- **Incentives** – How will this metric change product decisions compared to traditional success measures?
-- **Guardrails** – What thresholds or tapering effects prevent negative side effects?
-- **Validation** – How can we verify the metric works and surfaces what we intend?
+# Generate a complete report
+report = generate_metrics_report(
+    time_entries=time_entries,
+    priorities=priorities,
+    goals=goals,
+    actions=ActionLog(consumed=50, bookmarked=12, shared=3, applied=8),
+)
 
-## Example Highlights
+print(f"Quality Time Score: {report.quality_time_score:.1f}")
+print(f"Goal Alignment: {report.goal_alignment_percent:.0f}%")
+print(f"Actionability: {report.actionability_score:.3f}")
+```
 
-- [`engaged_learning_time`](metrics/examples/engaged_learning_time.md) balances time spent with demonstrated skill growth and reflective breaks, rewarding focused learning over endless consumption.
-- [`actionable_recommendation_rate`](metrics/examples/actionable_recommendation_rate.md) encourages recommendation systems to surface content that viewers can act on within their current goals, discouraging passive binge-watching loops.
-- [`civic_participation_depth`](metrics/examples/civic_participation_depth.md) supports civic-tech platforms by measuring how often residents progress from awareness to concrete participation opportunities.
-- [`accessibility_success_pathways`](metrics/examples/accessibility_success_pathways.md) centers disabled learners by tracking completion of accessible learning flows and surfacing blockers for remediation.
+## Evaluation Results
 
-## AI Evaluation Playbooks for Ethical Businesses
+Benchmarked across three synthetic user profiles representing different engagement patterns:
 
-AI-native organizations need evaluation suites that connect model performance with the human outcomes promised in their mission statements. Explore the detailed playbooks in [`evals/examples`](evals/examples/) for in-depth guidance on designing and governing AI evals programs that uphold ethical business practices:
+| Profile | QTS | Goal Alignment | Actionability | Recommendations |
+|---------|-----|----------------|---------------|-----------------|
+| Balanced Learner | 8.1 | 38.1% | 0.242 | 2 |
+| Distracted User | 1.0 | 5.3% | 0.023 | 4 |
+| Focused Professional | 7.7 | 94.7% | 0.617 | 1 |
 
-- [`trust_centered_deployment_review`](evals/examples/trust_centered_deployment_review.md) pairs disclosure and consent audits with cross-functional reviews before expanding conversational AI deployments.
-- [`impact_equity_monitor`](evals/examples/impact_equity_monitor.md) operationalizes fairness metrics, qualitative harm assessments, and mitigation follow-up plans for ranking and risk-scoring models.
-- [`sustainable_automation_scorecard`](evals/examples/sustainable_automation_scorecard.md) measures how automation affects employee wellbeing, oversight quality, and environmental sustainability.
-- [`inclusive_assistive_review`](evals/examples/inclusive_assistive_review.md) ensures AI accessibility assistants improve autonomy while protecting privacy and minimizing misdirection risk.
-- [`civic_outreach_accountability_board`](evals/examples/civic_outreach_accountability_board.md) governs municipal AI outreach tools with transparency, bias remediation, and public reporting obligations.
+**Key findings:**
+- The QTS correctly penalizes time on low-priority domains through diminishing returns caps (the "distracted user" scores 1.0 vs. 8.1 for the balanced learner despite spending similar total hours)
+- Goal alignment drops sharply when non-goal domains dominate time allocation
+- The actionability score distinguishes passive consumption (0.023) from active engagement (0.617)
+- The recommendation engine generates more suggestions for users with greater room for improvement
 
-Each playbook documents collection methods, review cadences, and responsible owners so that teams can iterate transparently. Contributors are encouraged to submit additional AI eval examples tailored to their industries—especially those that surface long-term human and societal impacts.
+See [`results/metrics.json`](results/metrics.json) for full benchmark data and [`results/figures/`](results/figures/) for visualizations.
 
-## Implementation Quick Starts
+## Architecture
 
-Every exemplar links to actionable assets in [`tooling/`](tooling/) so teams can move from documentation to execution. You'll find:
+```
+meaningful_metrics/
+  src/meaningful_metrics/
+    __init__.py        # Public API exports
+    schemas.py         # Pydantic data models (input/output types)
+    metrics.py         # Core metric functions (pure, stateless)
+    scoring.py         # Composite scoring and report generation
+  tests/               # pytest suite (>90% coverage)
+  docs/
+    architecture.md    # System design with Mermaid diagrams
+    model_card.md      # Model card (risks, limitations, mitigations)
+    decisions/         # Architecture Decision Records
+  results/             # Benchmark data and visualizations
+  evals/               # AI evaluation playbooks and examples
+  metrics/             # Human-centered metric proposals
+```
 
-- **Instrumentation guides** that describe required events, schemas, and logging standards.
-- **Reference queries and notebooks** for deriving each metric responsibly, including fairness slices and guardrails.
-- **Evaluation playbooks** with facilitation checklists, automation scripts, and decision log templates that connect directly to review cadences.
+The framework follows a three-layer architecture:
 
-Use these assets as a foundation, adapting them to your context while preserving the human-centered intent of each metric or evaluation.
+1. **Schema Layer** (Pydantic v2) -- Validates all inputs at the boundary
+2. **Metrics Core** (pure functions) -- Implements mathematical formulas with documented semantics
+3. **Scoring Layer** -- Composes individual metrics into reports with actionable recommendations
 
-## Contribution Maturity Tiers
+See [`docs/architecture.md`](docs/architecture.md) for detailed diagrams and design rationale.
 
-To help adopters gauge reliability, every contribution must declare a maturity level:
+## Tech Stack
 
-- **Idea** – Conceptual framing with initial signals and guardrails. Requires community discussion before merge.
-- **Draft** – Includes preliminary validation evidence (e.g., pilot data, qualitative research) and references tooling assets for implementation.
-- **Field-Tested** – Demonstrated impact in production or programs with documented outcomes, maintenance owners, and governance rituals.
+- **Python 3.11+** -- Type-annotated with `from __future__ import annotations`
+- **Pydantic v2** -- Runtime data validation with Rust-powered performance
+- **pytest + pytest-cov** -- Test suite with >90% coverage enforcement
+- **ruff** -- Linting and formatting (replaces flake8 + black + isort)
+- **mypy (strict)** -- Static type checking with full strict mode
+- **GitHub Actions** -- CI/CD with lint, typecheck, and test jobs across Python 3.11-3.13
 
-Issue and PR templates collect this information, and maintainers verify the maturity label before merging. Artifacts can be promoted between tiers once new evidence is documented in the community changelog.
+## Development
 
-## Community
+```bash
+# Install with dev dependencies
+pip install -e ".[dev]"
 
-Meaningful Metrics is maintained by volunteers who believe ethical design should be the default. We welcome contributors from product, research, design, policy, and lived-experience backgrounds. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating.
+# Run the full check suite
+make check        # lint + typecheck + test
 
-Visit the [`community/`](community/) area to browse changelogs, adoption stories, and upcoming office hours. Share your feedback via the intake form outlined there so we can publish regular updates and close the loop on requests.
+# Individual commands
+make lint          # ruff check
+make typecheck     # mypy strict
+make test          # pytest
+make coverage      # pytest with coverage report
+make format        # auto-format with ruff
+```
+
+## Documentation
+
+- [Architecture & Design](docs/architecture.md) -- System diagrams and module relationships
+- [Model Card](docs/model_card.md) -- Intended use, limitations, ethical considerations
+- [ADR-001: Pydantic for Schemas](docs/decisions/001-pydantic-for-schemas.md) -- Why Pydantic over alternatives
+- [ADR-002: Pure Functions](docs/decisions/002-pure-functions-for-metrics.md) -- Why stateless functions over classes
+- [API Reference](docs/api/README.md) -- Module-level documentation
+- [Metric Proposals](metrics/examples/) -- Example human-centered metrics
+- [AI Eval Playbooks](evals/examples/) -- Responsible AI evaluation frameworks
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Contributions welcome for:
+- New metric proposals (use [`docs/metric_template.md`](docs/metric_template.md))
+- AI evaluation playbooks (use [`docs/eval_template.md`](docs/eval_template.md))
+- Implementation tooling and integrations
+- Research validating metric effectiveness
 
 ## License
 
-This project is available under the [MIT License](LICENSE).
+MIT -- see [LICENSE](LICENSE).
