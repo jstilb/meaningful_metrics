@@ -49,7 +49,7 @@ lint:
 	ruff check src/ tests/
 
 format:
-	black src/ tests/
+	ruff format src/ tests/
 	ruff check --fix src/ tests/
 
 typecheck:
