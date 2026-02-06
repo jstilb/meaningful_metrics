@@ -323,6 +323,11 @@ def soft_min(a: float, b: float, alpha: float = 10.0) -> float:
     """
     # Numerical stability: subtract max before exp
     max_val = max(-alpha * a, -alpha * b)
-    return -1 / alpha * (max_val + math.log(
-        math.exp(-alpha * a - max_val) + math.exp(-alpha * b - max_val)
-    ))
+    return (
+        -1
+        / alpha
+        * (
+            max_val
+            + math.log(math.exp(-alpha * a - max_val) + math.exp(-alpha * b - max_val))
+        )
+    )

@@ -21,8 +21,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field, ValidationInfo, field_validator
-
+from pydantic import BaseModel, Field, field_validator
 
 # =============================================================================
 # Input Types
@@ -153,7 +152,7 @@ class ActionLog(BaseModel):
 
     @field_validator("bookmarked", "shared", "applied")
     @classmethod
-    def validate_not_exceeds_consumed(cls, v: int, info: ValidationInfo) -> int:
+    def validate_not_exceeds_consumed(cls, v: int) -> int:
         """Warn if action count seems high relative to consumed."""
         # Note: This is a soft validation - items can be acted on multiple ways
         return v

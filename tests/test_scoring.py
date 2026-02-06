@@ -162,8 +162,10 @@ class TestGenerateRecommendations:
         # Should have a positive "maintain" recommendation
         maintain_recs = [r for r in recommendations if r.type == "maintain"]
         assert len(maintain_recs) > 0
-        assert any("great" in r.message.lower() or "good" in r.message.lower()
-                   for r in maintain_recs)
+        assert any(
+            "great" in r.message.lower() or "good" in r.message.lower()
+            for r in maintain_recs
+        )
 
 
 class TestGenerateMetricsReport:
