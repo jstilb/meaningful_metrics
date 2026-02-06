@@ -39,11 +39,11 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black>=24.0",
     "mypy>=1.0",
     "pytest>=8.0",
     "pytest-cov>=4.0",
-    "ruff>=0.1",
+    "ruff>=0.8",
+    "pre-commit>=3.0",
 ]
 docs = [
     "mkdocs>=1.5",
@@ -91,10 +91,6 @@ exclude_lines = [
 show_missing = true
 skip_covered = false
 
-[tool.black]
-line-length = 88
-target-version = ["py311"]
-
 [tool.ruff]
 line-length = 88
 target-version = "py311"
@@ -122,6 +118,10 @@ ignore = [
 
 [tool.ruff.lint.isort]
 known-first-party = ["meaningful_metrics"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
 
 [tool.mypy]
 python_version = "3.11"
