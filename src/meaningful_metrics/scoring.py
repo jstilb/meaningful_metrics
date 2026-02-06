@@ -145,17 +145,20 @@ def generate_recommendations(
     # Check for domains exceeding caps
     for entry in time_entries:
         priority_config = priority_map.get(entry.domain)
-        if priority_config and priority_config.max_daily_hours:
-            if entry.hours > priority_config.max_daily_hours:
-                excess = entry.hours - priority_config.max_daily_hours
-                recommendations.append(
-                    Recommendation(
-                        type="decrease",
-                        domain=entry.domain,
-                        message=f"You spent {excess:.1f}h over your cap for {entry.domain}. Consider reallocating to higher-priority activities.",
-                        priority="medium",
-                    )
+        if (
+            priority_config
+            and priority_config.max_daily_hours
+            and entry.hours > priority_config.max_daily_hours
+        ):
+            excess = entry.hours - priority_config.max_daily_hours
+            recommendations.append(
+                Recommendation(
+                    type="decrease",
+                    domain=entry.domain,
+                    message=f"You spent {excess:.1f}h over your cap for {entry.domain}. Consider reallocating to higher-priority activities.",
+                    priority="medium",
                 )
+            )
 
     # Check for low-priority domains taking significant time
     for entry in time_entries:
@@ -175,9 +178,7 @@ def generate_recommendations(
     # Check for under-utilized goal domains
     for goal in goals:
         if goal.target_hours_per_week:
-            goal_time = sum(
-                time_by_domain.get(d, 0.0) for d in goal.domains
-            )
+            goal_time = sum(time_by_domain.get(d, 0.0) for d in goal.domains)
             if goal_time < goal.target_hours_per_week * 0.5:
                 recommendations.append(
                     Recommendation(
