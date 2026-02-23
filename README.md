@@ -1,8 +1,10 @@
 # Meaningful Metrics
 
 [![CI](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml/badge.svg)](https://github.com/jstilb/meaningful_metrics/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/meaningful-metrics)](https://pypi.org/project/meaningful-metrics/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/docs-mkdocs-blue)](https://jstilb.github.io/meaningful_metrics)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230.svg)](https://github.com/astral-sh/ruff)
 [![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org/)
 [![Coverage: >90%](https://img.shields.io/badge/coverage-%3E90%25-brightgreen.svg)](#evaluation-results)
@@ -17,6 +19,12 @@ The attention economy optimizes for the wrong thing. Products track time-on-site
 
 This project exists at the intersection of my interests in **AI evaluation**, **responsible ML**, and **product analytics**. It demonstrates how evaluation frameworks can be designed to align AI behavior with human flourishing rather than engagement maximization.
 
+## Connection to Constitutional AI
+
+This framework is philosophically aligned with [Anthropic's Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) approach to AI evaluation. Where Constitutional AI asks models to evaluate outputs against a set of human values, Meaningful Metrics asks product teams to evaluate user experiences against declared human intentions.
+
+Both approaches share a core conviction: **AI systems should be accountable to explicit human principles, not implicit engagement signals.**
+
 ## Key Metrics
 
 | Metric | What It Measures | Why It Matters |
@@ -30,7 +38,7 @@ This project exists at the intersection of my interests in **AI evaluation**, **
 ## Quick Start
 
 ```bash
-pip install -e .
+pip install meaningful-metrics
 ```
 
 ```python
@@ -95,6 +103,8 @@ Benchmarked across three synthetic user profiles representing different engageme
 
 See [`results/metrics.json`](results/metrics.json) for full benchmark data and [`results/figures/`](results/figures/) for visualizations.
 
+**Real-world case study:** [ChatGPT scores 76% on Goal Alignment](results/case-studies/chatgpt-goal-alignment.md) — applying the framework to evaluate ChatGPT across three user segments, based on published research.
+
 ## Architecture
 
 ```
@@ -109,9 +119,10 @@ meaningful_metrics/
     architecture.md    # System design with Mermaid diagrams
     model_card.md      # Model card (risks, limitations, mitigations)
     decisions/         # Architecture Decision Records
-  results/             # Benchmark data and visualizations
+  results/             # Benchmark data, visualizations, and case studies
   evals/               # AI evaluation playbooks and examples
   metrics/             # Human-centered metric proposals
+  notebooks/           # Jupyter quickstart notebook
 ```
 
 The framework follows a three-layer architecture:
@@ -150,11 +161,11 @@ make format        # auto-format with ruff
 
 ## Documentation
 
+- [Full Docs Site](https://jstilb.github.io/meaningful_metrics) -- MkDocs with auto-generated API reference
 - [Architecture & Design](docs/architecture.md) -- System diagrams and module relationships
 - [Model Card](docs/model_card.md) -- Intended use, limitations, ethical considerations
 - [ADR-001: Pydantic for Schemas](docs/decisions/001-pydantic-for-schemas.md) -- Why Pydantic over alternatives
 - [ADR-002: Pure Functions](docs/decisions/002-pure-functions-for-metrics.md) -- Why stateless functions over classes
-- [API Reference](docs/api/README.md) -- Module-level documentation
 - [Metric Proposals](metrics/examples/) -- Example human-centered metrics
 - [AI Eval Playbooks](evals/examples/) -- Responsible AI evaluation frameworks
 

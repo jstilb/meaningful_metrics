@@ -53,7 +53,7 @@ docs = [
 
 [project.urls]
 Homepage = "https://github.com/jstilb/meaningful_metrics"
-Documentation = "https://github.com/jstilb/meaningful_metrics#readme"
+Documentation = "https://jstilb.github.io/meaningful_metrics"
 Repository = "https://github.com/jstilb/meaningful_metrics"
 Issues = "https://github.com/jstilb/meaningful_metrics/issues"
 
