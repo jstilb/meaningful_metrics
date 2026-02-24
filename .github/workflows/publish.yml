@@ -40,8 +40,6 @@ jobs:
     environment:
       name: pypi
       url: https://pypi.org/p/meaningful-metrics
-    permissions:
-      id-token: write
 
     steps:
       - name: Download distribution packages
@@ -53,7 +51,5 @@ jobs:
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # Uses OIDC trusted publishing (no PYPI_API_TOKEN needed if configured)
-          # Alternatively, set the PYPI_API_TOKEN secret and uncomment:
-          # password: ${{ secrets.PYPI_API_TOKEN }}
+          password: ${{ secrets.PYPI_API_TOKEN }}
           skip-existing: true
