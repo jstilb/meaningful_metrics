@@ -180,3 +180,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Contributions welcome for
 ## License
 
 MIT -- see [LICENSE](LICENSE).
+
+
+## Related Projects
+
+- [llm-eval-framework](https://github.com/jstilb/llm-eval-framework) — LLM evaluation and testing framework
+- [modern-rag-pipeline](https://github.com/jstilb/modern-rag-pipeline) — Production RAG pipeline with hybrid search
