@@ -97,7 +97,22 @@ class DomainPriority(BaseModel):
     @field_validator("priority")
     @classmethod
     def validate_priority(cls, v: float) -> float:
-        """Ensure priority is within valid range."""
+        """Validate that the priority value is within the acceptable range.
+
+        Args:
+            v: The priority value to validate. Must be between 0.0 and 1.0.
+
+        Returns:
+            The validated priority value unchanged.
+
+        Raises:
+            ValueError: If priority is outside the range [0.0, 1.0].
+
+        Example:
+            >>> DomainPriority(domain="learning", priority=0.8)
+            DomainPriority(domain='learning', priority=0.8, max_daily_hours=None)
+            >>> DomainPriority(domain="learning", priority=1.5)  # raises ValueError
+        """
         if not 0.0 <= v <= 1.0:
             msg = "Priority must be between 0.0 and 1.0"
             raise ValueError(msg)
@@ -123,7 +138,22 @@ class TimeEntry(BaseModel):
     @field_validator("hours")
     @classmethod
     def validate_hours(cls, v: float) -> float:
-        """Ensure hours is non-negative."""
+        """Validate that time spent in hours is non-negative.
+
+        Args:
+            v: The hours value to validate. Must be >= 0.
+
+        Returns:
+            The validated hours value unchanged.
+
+        Raises:
+            ValueError: If hours is negative.
+
+        Example:
+            >>> TimeEntry(domain="learning", hours=2.5)
+            TimeEntry(domain='learning', hours=2.5)
+            >>> TimeEntry(domain="learning", hours=-1.0)  # raises ValueError
+        """
         if v < 0:
             msg = "Hours cannot be negative"
             raise ValueError(msg)
@@ -153,7 +183,23 @@ class ActionLog(BaseModel):
     @field_validator("bookmarked", "shared", "applied")
     @classmethod
     def validate_not_exceeds_consumed(cls, v: int) -> int:
-        """Warn if action count seems high relative to consumed."""
+        """Validate action count fields for the action log.
+
+        Args:
+            v: The action count value (bookmarked, shared, or applied). Must be >= 0.
+
+        Returns:
+            The validated count value unchanged.
+
+        Note:
+            This is a soft validation — items can be acted on in multiple ways,
+            so action counts are not strictly bounded by consumed count.
+
+        Example:
+            >>> log = ActionLog(consumed=100, bookmarked=20, shared=5, applied=10)
+            >>> log.bookmarked
+            20
+        """
         # Note: This is a soft validation - items can be acted on multiple ways
         return v
 
