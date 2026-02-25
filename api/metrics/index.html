@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -1316,12 +1316,7 @@
 
 
 <a href="#meaningful_metrics.metrics.calculate_quality_time_score" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_quality_time_score</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">priorities</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DomainPriority</span><span class="p">],</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="o">*</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">default_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_quality_time_score</span><span class="p">(</span><span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span> <span class="n">priorities</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DomainPriority</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">default_priority</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1623,9 +1618,7 @@ calculate_quality_time_score(entries, priorities)
 
 
 <a href="#meaningful_metrics.metrics.calculate_goal_alignment" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_goal_alignment</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span> <span class="n">goals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Goal</span><span class="p">]</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_goal_alignment</span><span class="p">(</span><span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span> <span class="n">goals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Goal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -1839,9 +1832,7 @@ calculate_goal_alignment(entries, goals)
 
 
 <a href="#meaningful_metrics.metrics.calculate_distraction_ratio" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_distraction_ratio</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span> <span class="n">goals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Goal</span><span class="p">]</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_distraction_ratio</span><span class="p">(</span><span class="n">time_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeEntry</span><span class="p">],</span> <span class="n">goals</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Goal</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2021,13 +2012,7 @@ calculate_distraction_ratio(entries, goals)
 
 
 <a href="#meaningful_metrics.metrics.calculate_actionability_score" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_actionability_score</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">consumed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">bookmarked</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">shared</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">applied</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">weights</span><span class="p">:</span> <span class="n">ActionWeights</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_actionability_score</span><span class="p">(</span><span class="n">consumed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bookmarked</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">shared</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">applied</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">ActionWeights</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2287,10 +2272,7 @@ action-oriented consumption.</p>
 
 
 <a href="#meaningful_metrics.metrics.calculate_actionability_score_from_log" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_actionability_score_from_log</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">action_log</span><span class="p">:</span> <span class="n">ActionLog</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">weights</span><span class="p">:</span> <span class="n">ActionWeights</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_actionability_score_from_log</span><span class="p">(</span><span class="n">action_log</span><span class="p">:</span> <span class="n">ActionLog</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">ActionWeights</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
@@ -2459,9 +2441,7 @@ calculate_actionability_score_from_log(log)
 
 
 <a href="#meaningful_metrics.metrics.calculate_locality_score" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_locality_score</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">local_relevance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">engagement</span><span class="p">:</span> <span class="nb">float</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">calculate_locality_score</span><span class="p">(</span><span class="n">local_relevance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">engagement</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 
     <div class="doc doc-contents first">
