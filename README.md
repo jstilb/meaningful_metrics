@@ -177,6 +177,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Contributions welcome for
 - Implementation tooling and integrations
 - Research validating metric effectiveness
 
+## Related Projects
+
+This project is part of a broader AI engineering portfolio:
+
+- [ai-assistant](https://github.com/jstilb/ai-assistant) — Production AI agent framework (Kaya) with autonomous task execution and persistent memory
+- [llm-eval-framework](https://github.com/jstilb/llm-eval-framework) — LLM-as-judge evaluation pipeline for assessing model outputs at scale
+- [modern-rag-pipeline](https://github.com/jstilb/modern-rag-pipeline) — Hybrid retrieval-augmented generation pipeline with vector search
+- [agent-orchestrator](https://github.com/jstilb/agent-orchestrator) — Multi-agent coordination framework for complex autonomous task execution
+
 ## License
 
 MIT -- see [LICENSE](LICENSE).
